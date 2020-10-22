@@ -69,6 +69,8 @@ android {
         versionName = (App.versionName)
 
         testInstrumentationRunner = standardRunner
+
+        multiDexEnabled = true
     }
 
     buildTypes {
