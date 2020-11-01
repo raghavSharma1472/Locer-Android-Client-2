@@ -8,13 +8,11 @@ import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_firstscreen.*
 import org.locer.`in`.databinding.ActivityFirstscreenBinding
 
 private const val TAG = "FirstScreen"
@@ -24,9 +22,9 @@ class FirstScreen : AppCompatActivity() {
     private lateinit var firstBoundLayout: ActivityFirstscreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_firstscreen)
-
         firstBoundLayout = ActivityFirstscreenBinding.inflate(layoutInflater)
+        setContentView(firstBoundLayout.root)
+
         val bitmap = Bitmap.createBitmap(500, 1000, Bitmap.Config.ARGB_4444)
         val canvas1 = Canvas(bitmap)
         val canvas2 = Canvas(bitmap)
@@ -53,14 +51,14 @@ class FirstScreen : AppCompatActivity() {
         // now bitmap holds the updated pixels
 
         // set bitmap as background to ImageView
-        imageV.background = BitmapDrawable(getResources(), bitmap)
+        firstBoundLayout.imageV.background = BitmapDrawable(getResources(), bitmap)
 
-        val emailTxt = findViewById<View>(R.id.emailId)
-        var email = emailTxt.toString()
-        val passwordTxt = findViewById<View>(R.id.password)
-        var password = passwordTxt.toString()
+        val email = firstBoundLayout.emailId.text.toString()
+        val password = firstBoundLayout.password.text.toString()
         auth = Firebase.auth
-        val button = findViewById<View>(R.id.login_button)
+        firstBoundLayout.loginButton.setOnClickListener {
+            createAccount(email, password)
+        }
 
     }
 
@@ -77,6 +75,4 @@ class FirstScreen : AppCompatActivity() {
 
         }
     }
-
-
 }
