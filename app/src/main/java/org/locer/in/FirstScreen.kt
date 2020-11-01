@@ -1,26 +1,32 @@
 package org.locer.`in`
 
-import android.os.Bundle
+import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
-import android.view.LayoutInflater
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil.setContentView
-import kotlinx.android.synthetic.main.activity_main.*
-import android.graphics.Bitmap
 import android.graphics.Paint
 import android.graphics.drawable.BitmapDrawable
+import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_firstscreen.*
+import org.locer.`in`.databinding.ActivityFirstscreenBinding
+
+private const val TAG = "FirstScreen"
+
 class FirstScreen : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    override fun onCreate(savedInstanceState: Bundle?){
+    private lateinit var firstBoundLayout: ActivityFirstscreenBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_firstscreen)
 
+        firstBoundLayout = ActivityFirstscreenBinding.inflate(layoutInflater)
         val bitmap = Bitmap.createBitmap(500, 1000, Bitmap.Config.ARGB_4444)
         val canvas1 = Canvas(bitmap)
         val canvas2 = Canvas(bitmap)
@@ -36,14 +42,14 @@ class FirstScreen : AppCompatActivity() {
         val displayMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         // circle center
-        System.out.println("Width : "+displayMetrics.widthPixels)
-        val center_x = (displayMetrics.widthPixels/22).toFloat()
-        val center_y = (displayMetrics.heightPixels/22).toFloat()
+        System.out.println("Width : " + displayMetrics.widthPixels)
+        val center_x = (displayMetrics.widthPixels / 22).toFloat()
+        val center_y = (displayMetrics.heightPixels / 22).toFloat()
         val radius = 300F
 
         // draw circles
         canvas1.drawCircle(center_x, center_y, radius, paint1)
-        canvas2.drawCircle(center_x*11,center_y*11,radius,paint1)
+        canvas2.drawCircle(center_x * 11, center_y * 11, radius, paint1)
         // now bitmap holds the updated pixels
 
         // set bitmap as background to ImageView
@@ -55,15 +61,22 @@ class FirstScreen : AppCompatActivity() {
         var password = passwordTxt.toString()
         auth = Firebase.auth
         val button = findViewById<View>(R.id.login_button)
-        button.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
-                auth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            val user = auth.currentUser
-                        }
-                    }
-            }
-        })
+
     }
+
+    private fun createAccount(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) {
+            if (it.isSuccessful) {
+                Log.d(TAG, "onCreate: Signed in successfully")
+                val user = auth.currentUser
+//                updateUI()
+            } else {
+                Log.e(TAG, "onCreate: Sigining in failed!!")
+                Toast.makeText(this, "Logging in failed", Toast.LENGTH_LONG).show()
+            }
+
+        }
+    }
+
+
 }

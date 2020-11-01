@@ -1,108 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FirstScreen">
+<layout>
 
-    <ImageView
-        android:id="@+id/imageV"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <EditText
-        android:id="@+id/emailId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="264dp"
-        android:layout_marginBottom="422dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:nextFocusDown="@id/password"
-        android:text="Email id/Phone"
-        android:textColor="@color/dotInactive"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/login_button"
-        app:layout_constraintTop_toTopOf="parent" />
+    </data>
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="369dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Password"
-        android:textColor="@color/dotInactive"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/emailId"
-        app:layout_constraintTop_toBottomOf="@+id/emailId" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:context=".FirstScreen">
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="307dp"
-        android:background="@drawable/fui_idp_button_background_google"
-        android:text="Login"
-        android:textColor="@color/fui_bgEmail"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        <ImageView
+          android:id="@+id/imageV"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/signup_button"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
-        android:background="@color/fui_bgEmail"
-        android:text="SignUp"
-        android:textColor="@color/appintro_default_selected_color"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+          android:id="@+id/emailId"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="264dp"
+          android:layout_marginBottom="422dp"
+          android:ems="10"
+          android:hint="Email id/Phone"
+          android:inputType="textEmailAddress"
+          android:nextFocusDown="@id/password"
+          android:textColor="@color/dotInactive"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="@+id/login_button"
+          app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
-        android:background="@color/appintro_default_selected_color"
-        android:text="Sign Up With Facebook"
-        android:textColor="@color/fui_bgEmail"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+          android:id="@+id/password"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:layout_marginBottom="369dp"
+          android:ems="10"
+          android:hint="Password"
+          android:inputType="textPassword"
+          android:textColor="@color/dotInactive"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="@+id/emailId"
+          app:layout_constraintTop_toBottomOf="@+id/emailId" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:background="@color/appintro_default_selected_color"
-        android:text="Sign Up With Google"
-        android:textColor="@color/fui_bgEmail"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+          android:id="@+id/login_button"
+          android:layout_width="210dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="14dp"
+          android:layout_marginBottom="307dp"
+          android:background="@drawable/fui_idp_button_background_google"
+          android:text="Login"
+          android:textColor="@color/fui_bgEmail"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:text="or"
-        app:layout_constraintBottom_toTopOf="@+id/signup_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        <Button
+          android:id="@+id/signup_button"
+          android:layout_width="210dp"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="22dp"
+          android:background="@color/fui_bgEmail"
+          android:text="SignUp"
+          android:textColor="@color/appintro_default_selected_color"
+          app:layout_constraintBottom_toTopOf="@+id/button3"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+          android:id="@+id/button3"
+          android:layout_width="210dp"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="13dp"
+          android:background="@color/appintro_default_selected_color"
+          android:text="Sign Up With Facebook"
+          android:textColor="@color/fui_bgEmail"
+          app:layout_constraintBottom_toTopOf="@+id/button4"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+          android:id="@+id/button4"
+          android:layout_width="210dp"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="64dp"
+          android:background="@color/appintro_default_selected_color"
+          android:text="Sign Up With Google"
+          android:textColor="@color/fui_bgEmail"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+          android:id="@+id/textView3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="17dp"
+          android:text="or"
+          app:layout_constraintBottom_toTopOf="@+id/signup_button"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -7,6 +7,7 @@ import deps.implementations.Framework.drawerLayout
 import deps.implementations.Framework.firebaseAnalytics
 import deps.implementations.Framework.firebaseAuth
 import deps.implementations.Framework.firebaseBom
+import deps.implementations.Framework.firebaseKtx
 import deps.implementations.Framework.gsonConverter
 import deps.implementations.Framework.introScreen
 import deps.implementations.Framework.navFragment
@@ -116,6 +117,7 @@ dependencies {
 
     // Firebase Auth
     implementation(firebaseAuth)
+    implementation(firebaseKtx)
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
