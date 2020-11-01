@@ -11,9 +11,12 @@ import android.graphics.Bitmap
 import android.graphics.Paint
 import android.graphics.drawable.BitmapDrawable
 import android.util.DisplayMetrics
+import android.view.View
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_firstscreen.*
-
 class FirstScreen : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_firstscreen)
@@ -45,5 +48,22 @@ class FirstScreen : AppCompatActivity() {
 
         // set bitmap as background to ImageView
         imageV.background = BitmapDrawable(getResources(), bitmap)
+
+        val emailTxt = findViewById<View>(R.id.emailId)
+        var email = emailTxt.toString()
+        val passwordTxt = findViewById<View>(R.id.password)
+        var password = passwordTxt.toString()
+        auth = Firebase.auth
+        val button = findViewById<View>(R.id.login_button)
+        button.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            val user = auth.currentUser
+                        }
+                    }
+            }
+        })
     }
 }
