@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val intent = Intent(this, FirstScreen::class.java)
+        val intent = Intent(this, SignUpPage::class.java)
         startActivity(intent)
 
 //        if (!sharedPreferenceUtil.showIntro()) {

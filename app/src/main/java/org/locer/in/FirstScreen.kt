@@ -16,11 +16,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_firstscreen.*
 class FirstScreen : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
+    private lateinit var mAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_firstscreen)
-
         val bitmap = Bitmap.createBitmap(500, 1000, Bitmap.Config.ARGB_4444)
         val canvas1 = Canvas(bitmap)
         val canvas2 = Canvas(bitmap)
@@ -53,17 +52,14 @@ class FirstScreen : AppCompatActivity() {
         var email = emailTxt.toString()
         val passwordTxt = findViewById<View>(R.id.password)
         var password = passwordTxt.toString()
-        auth = Firebase.auth
+        mAuth = FirebaseAuth.getInstance()
         val button = findViewById<View>(R.id.login_button)
-        button.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
-                auth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            val user = auth.currentUser
-                        }
-                    }
+        button.setOnClickListener {
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val user = mAuth.currentUser
+                }
             }
-        })
+        }
     }
 }

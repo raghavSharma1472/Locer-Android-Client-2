@@ -28,6 +28,7 @@
           android:name="org.locer.in.IntroActivity"
           android:exported="false" />
         <activity android:name="org.locer.in.FirstScreen"/>
+        <activity android:name="org.locer.in.SignUpPage"/>
     </application>
 
 </manifest>

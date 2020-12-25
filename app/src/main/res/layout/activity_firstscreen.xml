@@ -24,10 +24,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:nextFocusDown="@id/password"
-        android:text="Email id/Phone"
-        android:textColor="@color/dotInactive"
+        android:hint="Email id/Phone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/login_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -38,9 +38,9 @@
         android:layout_marginBottom="369dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Password"
-        android:textColor="@color/dotInactive"
+        android:hint="Password"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/emailId"
         app:layout_constraintStart_toStartOf="@+id/emailId"
         app:layout_constraintTop_toBottomOf="@+id/emailId" />
 
@@ -54,8 +54,8 @@
         android:text="Login"
         android:textColor="@color/fui_bgEmail"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
