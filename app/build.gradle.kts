@@ -4,7 +4,7 @@ import deps.implementations.Framework.appCompat
 import deps.implementations.Framework.constraintLayout
 import deps.implementations.Framework.coordLayout
 import deps.implementations.Framework.drawerLayout
-import deps.implementations.Framework.firebaseAnalytics
+import deps.implementations.Framework.firebaseAnalyticsKtx
 import deps.implementations.Framework.firebaseAuth
 import deps.implementations.Framework.firebaseBom
 import deps.implementations.Framework.gsonConverter
@@ -30,6 +30,7 @@ plugins {
     id(coreplugins.BuildPlugins.kotlinKapt)
     id(coreplugins.BuildPlugins.firebasePlugin)
     id(coreplugins.BuildPlugins.navSafeArgsPlugin)
+    id(coreplugins.BuildPlugins.crashlyticsPlugin)
 }
 
 android {
@@ -113,7 +114,8 @@ dependencies {
 
     // Firebase Essential
     implementation(platform(firebaseBom))
-    implementation(firebaseAnalytics)
+    implementation(firebaseAnalyticsKtx)
+    implementation(deps.implementations.Framework.firebaseCrashlyticsKtx)
 
     // Firebase Auth
     implementation(firebaseAuth)

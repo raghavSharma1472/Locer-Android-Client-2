@@ -19,6 +19,7 @@ object Framework {
     const val firebaseServices = "4.3.4"
     const val firebaseBom = "25.12.0"
     const val firebaseAuth = "6.2.0"
+    const val firebaseCrashlytics = "2.4.1"
 
     // external deps go in here
     const val introScreen = "6.0.0"

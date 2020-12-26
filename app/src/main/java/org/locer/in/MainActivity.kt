@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate: log check!")
 
+        boundLayout = DataBindingUtil.setContentView(this, R.layout.activity_main)
         if (!sharedPreferenceUtil.showIntro()) {
-            boundLayout = DataBindingUtil.setContentView(this, R.layout.activity_main)
             bottomNavView = boundLayout.mainBottomNavView
             navController = Navigation.findNavController(this, R.id.main_nav_host_fragment)
             navController.addOnDestinationChangedListener(finishActionModeOnDestinationChanged)
@@ -61,8 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navigateToSignUp() {
-//        boundLayout.mainBottomNavView.visibility = View.GONE
-        findViewById<View>(R.id.main_bottom_nav_view).visibility = View.GONE
+        boundLayout.mainBottomNavView.visibility = View.GONE
         findNavController(R.id.main_nav_host_fragment).navigate(actionHomeFragmentToSignUpPage())
     }
 
