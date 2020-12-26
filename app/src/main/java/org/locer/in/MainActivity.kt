@@ -2,6 +2,7 @@ package org.locer.`in`
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.databinding.DataBindingUtil
@@ -12,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.locer.`in`.databinding.ActivityMainBinding
 
+private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
 
 
@@ -27,8 +29,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate: log check!")
         val intent = Intent(this, SignUpPage::class.java)
         startActivity(intent)
+        finish()
 
 //        if (!sharedPreferenceUtil.showIntro()) {
 //            boundLayout = DataBindingUtil.setContentView(this, R.layout.activity_main)

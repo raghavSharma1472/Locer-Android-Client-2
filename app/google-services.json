@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "248955814962",
-    "firebase_url": "https://locerandroidclient.firebaseio.com",
-    "project_id": "locerandroidclient",
-    "storage_bucket": "locerandroidclient.appspot.com"
+    "project_number": "620673497129",
+    "firebase_url": "https://locer-android.firebaseio.com",
+    "project_id": "locer-android",
+    "storage_bucket": "locer-android.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:248955814962:android:549c8e05bf3bd9c283282b",
+        "mobilesdk_app_id": "1:620673497129:android:51e9e8e127605769e34438",
         "android_client_info": {
           "package_name": "org.locer.in"
         }
       },
       "oauth_client": [
         {
-          "client_id": "248955814962-782ca6ocavuuvh1j2g5tgjvrrvtsmfgv.apps.googleusercontent.com",
+          "client_id": "620673497129-ppka9igj86npgb6hecicbjdegt0btot3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.locer.in",
+            "certificate_hash": "328c5bf8bedb00a6235f6e6354fcc04d89d95457"
+          }
+        },
+        {
+          "client_id": "620673497129-tmljpru25u5blf0r9p5oggipp4u6ff18.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCWqPtWl548hlsn-XadDIeJj1QN6EqMp1g"
+          "current_key": "AIzaSyCtMjyNvm_gIgnQVIFd6AkVCBmGeKUdF04"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "248955814962-782ca6ocavuuvh1j2g5tgjvrrvtsmfgv.apps.googleusercontent.com",
+              "client_id": "620673497129-tmljpru25u5blf0r9p5oggipp4u6ff18.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
