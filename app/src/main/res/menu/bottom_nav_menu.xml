@@ -3,26 +3,26 @@
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-      android:id="@+id/navigation_home"
+      android:id="@+id/home_fragment"
       android:icon="@drawable/home_24px"
       android:title="Home"
       />
 
     <item
-      android:id="@+id/navigation_wishlist"
+      android:id="@+id/wishlist_fragment"
       android:icon="@drawable/favorite_black_18dp"
       android:title="Wishlist"
        />
 
     <item
-      android:id="@+id/navigation_laundry"
+      android:id="@+id/laundry_fragment"
       android:enabled="true"
       android:icon="@drawable/local_laundry_service_black_18dp"
       android:title="Laundry"
       app:showAsAction="never" />
 
     <item
-      android:id="@+id/navigation_cart"
+      android:id="@+id/cart_fragment"
       android:enabled="true"
       android:icon="@drawable/shopping_cart_black_18dp"
       android:title="Cart"

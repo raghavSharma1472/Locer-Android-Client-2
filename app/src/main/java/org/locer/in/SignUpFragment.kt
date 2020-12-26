@@ -16,12 +16,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_firstscreen.*
-import org.locer.`in`.SignUpPageDirections.Companion.actionSignUpPageToNavigationHome
+import org.locer.`in`.SignUpFragmentDirections.Companion.actionSignUpPageToHomeFragment
 import org.locer.`in`.databinding.FragmentSignUpBinding
 
-private const val TAG = "SignUpPage"
+private const val TAG = "SignUpFragment"
 
-class SignUpPage : Fragment() {
+class SignUpFragment : Fragment() {
     private lateinit var signUpPageDataBindingLayout: FragmentSignUpBinding
     private val sharedPreferenceUtil: SharedPreferenceUtil by
     lazy { SharedPreferenceUtil(requireContext()) }
@@ -103,5 +103,5 @@ class SignUpPage : Fragment() {
         }
     }
 
-private fun navigateToHome() = findNavController().navigate(actionSignUpPageToNavigationHome())
+    private fun navigateToHome() = findNavController().navigate(actionSignUpPageToHomeFragment())
 }

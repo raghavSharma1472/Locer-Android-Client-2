@@ -2,43 +2,43 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:id="@+id/main_navigation"
-  app:startDestination="@id/navigation_home">
+  app:startDestination="@id/home_fragment">
 
     <fragment
-      android:id="@+id/navigation_cart"
+      android:id="@+id/cart_fragment"
       android:name="org.locer.in.CartFragment"
       android:label="CartFragment" />
 
     <fragment
-      android:id="@+id/navigation_home"
+      android:id="@+id/home_fragment"
       android:name="org.locer.in.HomeFragment"
       android:label="HomeFragment">
         <action
-          android:id="@+id/action_navigation_home_to_signUpPage"
-          app:destination="@id/signUpPage"
-          app:popUpTo="@id/navigation_home"
+          android:id="@+id/action_home_fragment_to_signUpPage"
+          app:destination="@id/signup_fragment"
+          app:popUpTo="@id/home_fragment"
           app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
-      android:id="@+id/navigation_wishlist"
+      android:id="@+id/wishlist_fragment"
       android:name="org.locer.in.WishlistFragment"
       android:label="WishlistFragment" />
 
     <fragment
-      android:id="@+id/navigation_laundry"
+      android:id="@+id/laundry_fragment"
       android:name="org.locer.in.HistoryFragment"
       android:label="LaundryFragment">
 
     </fragment>
     <fragment
-      android:id="@+id/signUpPage"
-      android:name="org.locer.in.SignUpPage"
-      android:label="SignUpPage" >
+      android:id="@+id/signup_fragment"
+      android:name="org.locer.in.SignUpFragment"
+      android:label="SignUpFragment">
         <action
-          android:id="@+id/action_signUpPage_to_navigation_home"
-          app:destination="@id/navigation_home"
-          app:popUpTo="@id/signUpPage"
+          android:id="@+id/action_signUpPage_to_home_fragment"
+          app:destination="@id/home_fragment"
+          app:popUpTo="@id/signup_fragment"
           app:popUpToInclusive="true" />
     </fragment>
 

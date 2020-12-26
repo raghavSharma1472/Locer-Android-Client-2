@@ -10,9 +10,6 @@ import org.locer.`in`.databinding.FragmentHomeBinding
 import org.locer.`in`.recyclerView.Datasource
 import org.locer.`in`.recyclerView.ItemAdapter
 
-/**
- * Authored by Ayush Shrivastava on 23/8/20
- */
 class HomeFragment : Fragment() {
 
     private lateinit var homeBoundLayout: FragmentHomeBinding
