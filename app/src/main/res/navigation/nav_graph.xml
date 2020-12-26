@@ -14,7 +14,7 @@
       android:name="org.locer.in.HomeFragment"
       android:label="HomeFragment">
         <action
-          android:id="@+id/action_home_fragment_to_signUpPage"
+          android:id="@+id/action_home_fragment_to_signup_fragment"
           app:destination="@id/signup_fragment"
           app:popUpTo="@id/home_fragment"
           app:popUpToInclusive="true" />
@@ -47,6 +47,12 @@
     <fragment
       android:id="@+id/loginFragment"
       android:name="org.locer.in.LoginFragment"
-      android:label="LoginFragment" />
+      android:label="LoginFragment" >
+        <action
+          android:id="@+id/action_loginFragment_to_home_fragment"
+          app:destination="@id/home_fragment"
+          app:popUpTo="@id/signup_fragment"
+          app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

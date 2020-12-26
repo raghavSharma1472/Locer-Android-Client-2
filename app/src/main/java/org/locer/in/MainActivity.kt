@@ -13,7 +13,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import org.locer.`in`.HomeFragmentDirections.Companion.actionHomeFragmentToSignUpPage
+import org.locer.`in`.HomeFragmentDirections.Companion.actionHomeFragmentToSignupFragment
 import org.locer.`in`.databinding.ActivityMainBinding
 
 private const val TAG = "MainActivity"
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigateToSignUp() {
         boundLayout.mainBottomNavView.visibility = View.GONE
-        findNavController(R.id.main_nav_host_fragment).navigate(actionHomeFragmentToSignUpPage())
+        findNavController(R.id.main_nav_host_fragment).navigate(actionHomeFragmentToSignupFragment())
     }
 
     // don't remove the following code, it may be helpful in future that's why it is kept here

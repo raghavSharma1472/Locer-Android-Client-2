@@ -13,16 +13,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import org.locer.`in`.LoginFragmentDirections.Companion.actionLoginFragmentToHomeFragment
 import org.locer.`in`.databinding.FragmentLoginBinding
 
 private const val TAG = "LoginFragment"
 
 class LoginFragment : Fragment() {
 
-    private lateinit var mAuth: FirebaseAuth
     private lateinit var loginFragmentBinding: FragmentLoginBinding
-
+    private val sharedPreferenceUtil: SharedPreferenceUtil by
+    lazy { SharedPreferenceUtil(requireContext()) }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -64,14 +66,31 @@ class LoginFragment : Fragment() {
         // set bitmap as background to ImageView
         loginFragmentBinding.imageV.background = BitmapDrawable(getResources(), bitmap)
 
-        val emailAddress = loginFragmentBinding.emailId.text.toString()
-        val password = loginFragmentBinding.password.text.toString()
-        mAuth = FirebaseAuth.getInstance()
-
-        // TODO: 27/12/20  setup login method
-
         loginFragmentBinding.loginButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Not implemented yet :(", Toast.LENGTH_LONG).show()
+            val emailAddress = loginFragmentBinding.emailId.text.toString()
+            val password = loginFragmentBinding.password.text.toString()
+            loginUsingFirebase(emailAddress, password)
+
         }
     }
+
+    private fun loginUsingFirebase(email: String, password: String) {
+        val auth = FirebaseAuth.getInstance()
+        activity?.let {
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(it) { task ->
+                if (task.isSuccessful) {
+                    Log.d(TAG, "loginUsingFirebase: Login Successful!")
+                    sharedPreferenceUtil.setLoggedIn()
+                    Toast.makeText(requireContext(), "Login Successful!", Toast.LENGTH_LONG).show()
+                    navigateToHome()
+                } else {
+                    Log.e(TAG, "loginUsingFirebase: Login Failed, exception: ", task.exception)
+                    Toast.makeText(requireContext(), "Error logging in..", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    private fun navigateToHome() = findNavController().navigate(actionLoginFragmentToHomeFragment())
+
 }

@@ -113,7 +113,7 @@ dependencies {
     implementation(navRuntime)
     implementation(retrofit)
     implementation(gsonConverter)
-    implementation(materialDesign)
+//    implementation(materialDesign)
 
     // Firebase Essential
     implementation(platform(firebaseBom))
