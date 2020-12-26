@@ -15,8 +15,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_firstscreen.*
 import org.locer.`in`.SignUpFragmentDirections.Companion.actionSignUpPageToHomeFragment
+import org.locer.`in`.SignUpFragmentDirections.Companion.actionSignupFragmentToLoginFragment
 import org.locer.`in`.databinding.FragmentSignUpBinding
 
 private const val TAG = "SignUpFragment"
@@ -42,12 +42,14 @@ class SignUpFragment : Fragment() {
         val canvas1 = Canvas(bitmap)
         val canvas2 = Canvas(bitmap)
 
-        val paint1 = Paint()
-        paint1.setColor(Color.parseColor("#FEE65E"))
-        paint1.setStrokeWidth(30F)
-        paint1.setStyle(Paint.Style.FILL)
-        paint1.setAntiAlias(true)
-        paint1.setDither(true)
+        val paint = Paint()
+        paint.apply {
+            color = Color.parseColor("#FF2800")
+            strokeWidth = 30F
+            style = Paint.Style.FILL
+            isAntiAlias = true
+            isDither = true
+        }
 
         // get device dimensions
         val displayMetrics = DisplayMetrics()
@@ -56,17 +58,17 @@ class SignUpFragment : Fragment() {
         // circle center
         Log.d(TAG, "onViewCreated: checking screen width- Width: ${displayMetrics.widthPixels}")
 
-        val center_x = (displayMetrics.widthPixels / 4.2).toFloat()
-        val center_y = (displayMetrics.heightPixels / 75).toFloat()
+        val centerX = (displayMetrics.widthPixels / 4.2).toFloat()
+        val centerY = (displayMetrics.heightPixels / 75).toFloat()
         val radius = 300F
 
         // draw circles
-        canvas1.drawCircle(center_x, center_y, radius, paint1)
-        canvas2.drawCircle(center_x / 11, center_y * 38, radius, paint1)
+        canvas1.drawCircle(centerX, centerY, radius, paint)
+        canvas2.drawCircle(centerX / 11, centerY * 38, radius, paint)
         // now bitmap holds the updated pixels
 
         // set bitmap as background to ImageView
-        imageV.background = BitmapDrawable(getResources(), bitmap)
+        signUpPageDataBindingLayout.imageV.background = BitmapDrawable(resources, bitmap)
 
         val emailParam = signUpPageDataBindingLayout.emailId
         val passwordParam = signUpPageDataBindingLayout.password
@@ -75,6 +77,9 @@ class SignUpFragment : Fragment() {
             val password = passwordParam.text.toString().trim()
             signUp(email, password)
         }
+
+        signUpPageDataBindingLayout.loginButton.setOnClickListener { navigateToLogin() }
+
     }
 
     private fun signUp(email: String, password: String) {
@@ -91,11 +96,16 @@ class SignUpFragment : Fragment() {
                             "onCreate: Retrieved user credentials: mail address: $email & Password: $password "
                         )
                         Log.d(TAG, "onCreate: USER-ID: $userId")
-                        Toast.makeText(activity, "Login Successful!!", Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(), "Login Successful!!", Toast.LENGTH_LONG)
+                            .show()
                         sharedPreferenceUtil.setLoggedIn()
                         navigateToHome()
                     } else {
-                        Toast.makeText(activity, "Error logging you in...", Toast.LENGTH_LONG)
+                        Toast.makeText(
+                            requireContext(),
+                            "Error logging you in...",
+                            Toast.LENGTH_LONG
+                        )
                             .show()
                         Log.d(TAG, "signUp: Task Failed!!!, ${task.result}")
                     }
@@ -104,4 +114,6 @@ class SignUpFragment : Fragment() {
     }
 
     private fun navigateToHome() = findNavController().navigate(actionSignUpPageToHomeFragment())
+    private fun navigateToLogin() =
+        findNavController().navigate(actionSignupFragmentToLoginFragment())
 }

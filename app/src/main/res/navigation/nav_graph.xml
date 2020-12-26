@@ -40,6 +40,13 @@
           app:destination="@id/home_fragment"
           app:popUpTo="@id/signup_fragment"
           app:popUpToInclusive="true" />
+        <action
+          android:id="@+id/action_signup_fragment_to_loginFragment"
+          app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+      android:id="@+id/loginFragment"
+      android:name="org.locer.in.LoginFragment"
+      android:label="LoginFragment" />
 
 </navigation>
