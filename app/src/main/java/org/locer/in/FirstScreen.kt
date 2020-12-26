@@ -59,28 +59,7 @@ class FirstScreen : AppCompatActivity() {
         val password = firstDataBindingLayout.password.text.toString()
         mAuth = FirebaseAuth.getInstance()
         firstDataBindingLayout.loginButton.setOnClickListener {
-//            Log.d(
-//                TAG,
-//                "onCreate: Retrieved user credentials: mail address: $emailAddress & Password: $password "
-//            )
-//            mAuth.signInWithEmailAndPassword(emailAddress, password).addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    Log.d(
-//                        TAG,
-//                        "onCreate: Retrieved user credentials: mail address: $emailAddress & Password: $password "
-//                    )
-//                    val user = mAuth.currentUser
-//                    Toast.makeText(
-//                        this,
-//                        "You're successfully logged in to the system",
-//                        Toast.LENGTH_LONG
-//                    ).show()
-//                } else {
-//                    Toast.makeText(this, "Error logging you in...", Toast.LENGTH_LONG).show()
-//                    Log.d(TAG, "Checking task result: ${task.result} ")
-//                }
-            Toast.makeText(this, "Error logging you in...", Toast.LENGTH_LONG).show()
-        
+            Toast.makeText(this, "Not implemented yet :(", Toast.LENGTH_LONG).show()
         }
     }
 }

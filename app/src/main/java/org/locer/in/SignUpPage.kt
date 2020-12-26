@@ -20,12 +20,8 @@ private const val TAG = "SignUpPage"
 class SignUpPage : AppCompatActivity() {
     private lateinit var signUpPageDataBindingLayout: ActivitySignuppageBinding
 
-    //    private var mDatabaseReference: DatabaseReference? = null
-//    private var mDatabase: FirebaseDatabase? = null
     override fun onCreate(savedInstancestate: Bundle?) {
         super.onCreate(savedInstancestate)
-//        signUpPageDataBindingLayout = ActivitySignuppageBinding.inflate(layoutInflater)
-//        setContentView(signupp300F.root agedatabindinglayout)
         signUpPageDataBindingLayout =
             DataBindingUtil.setContentView(this, R.layout.activity_signuppage)
         val bitmap = Bitmap.createBitmap(500, 1000, Bitmap.Config.ARGB_4444)
@@ -78,7 +74,7 @@ class SignUpPage : AppCompatActivity() {
                         "onCreate: Retrieved user credentials: mail address: $email & Password: $password "
                     )
                     Log.d(TAG, "onCreate: USER-ID: $userId")
-                    Toast.makeText(this, "Error logging you in...", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Login Successful!!", Toast.LENGTH_LONG).show()
                 } else{
                     Toast.makeText(this, "Error logging you in...", Toast.LENGTH_LONG).show()
                     Log.d(TAG, "signUp: Task Failed!!!, ${task.result}")
