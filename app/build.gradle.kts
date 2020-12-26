@@ -4,11 +4,13 @@ import deps.implementations.Framework.appCompat
 import deps.implementations.Framework.constraintLayout
 import deps.implementations.Framework.coordLayout
 import deps.implementations.Framework.drawerLayout
-import deps.implementations.Framework.firebaseAnalytics
+import deps.implementations.Framework.firebaseAnalyticsKtx
 import deps.implementations.Framework.firebaseAuth
 import deps.implementations.Framework.firebaseBom
+import deps.implementations.Framework.firebaseCrashlyticsKtx
 import deps.implementations.Framework.gsonConverter
 import deps.implementations.Framework.introScreen
+import deps.implementations.Framework.materialDesign
 import deps.implementations.Framework.multiDex
 import deps.implementations.Framework.navFragment
 import deps.implementations.Framework.navRuntime
@@ -30,6 +32,8 @@ plugins {
     id(coreplugins.BuildPlugins.kotlinAndroidExtensions)
     id(coreplugins.BuildPlugins.kotlinKapt)
     id(coreplugins.BuildPlugins.firebasePlugin)
+    id(coreplugins.BuildPlugins.navSafeArgsPlugin)
+    id(coreplugins.BuildPlugins.crashlyticsPlugin)
 }
 
 android {
@@ -70,6 +74,8 @@ android {
         versionName = (App.versionName)
 
         testInstrumentationRunner = standardRunner
+
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -108,11 +114,14 @@ dependencies {
     implementation(navRuntime)
     implementation(retrofit)
     implementation(gsonConverter)
+//    implementation(materialDesign) // was causing some problem, 
+  // see: https://github.com/njaLocer/Locer-Android-Client/pull/33#issuecomment-751405014
     implementation(multiDex)
 
     // Firebase Essential
     implementation(platform(firebaseBom))
-    implementation(firebaseAnalytics)
+    implementation(firebaseAnalyticsKtx)
+    implementation(firebaseCrashlyticsKtx)
 
     // Firebase Auth
     implementation(firebaseAuth)

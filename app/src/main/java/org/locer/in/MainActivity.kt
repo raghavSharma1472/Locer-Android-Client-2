@@ -2,19 +2,25 @@ package org.locer.`in`
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.locer.`in`.HomeFragmentDirections.Companion.actionHomeFragmentToSignupFragment
 import org.locer.`in`.databinding.ActivityMainBinding
+
+private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
 
-    private  val sharedPreferenceUtil by lazy { SharedPreferenceUtil(context = this) }
+    private val sharedPreferenceUtil by lazy { SharedPreferenceUtil(context = this) }
     private lateinit var boundLayout: ActivityMainBinding
     private lateinit var bottomNavView: BottomNavigationView
     private lateinit var appBarConfig: AppBarConfiguration
@@ -26,9 +32,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate: log check!")
 
+        boundLayout = DataBindingUtil.setContentView(this, R.layout.activity_main)
         if (!sharedPreferenceUtil.showIntro()) {
-            boundLayout = DataBindingUtil.setContentView(this, R.layout.activity_main)
             bottomNavView = boundLayout.mainBottomNavView
             navController = Navigation.findNavController(this, R.id.main_nav_host_fragment)
             navController.addOnDestinationChangedListener(finishActionModeOnDestinationChanged)
@@ -36,6 +43,9 @@ class MainActivity : AppCompatActivity() {
             boundLayout.mainBottomNavView.setupWithNavController(navController)
         } else {
             handleIntro()
+        }
+        if (!sharedPreferenceUtil.isLoggedIn) {
+            navigateToSignUp()
         }
     }
 
@@ -50,11 +60,16 @@ class MainActivity : AppCompatActivity() {
         boundLayout.mainBottomNavView.setupWithNavController(navController = navController)
     }
 
-// don't remove the following code, it may be helpful in future that's why it is kept here
-//    val intentForNextScreen: Intent
-//        get() = if (sharedPreferenceUtil.showIntro())
-//            Intent(this, IntroActivity::class.java)
-//        else
-//            Intent(this, MainActivity::class.java)
+    private fun navigateToSignUp() {
+        boundLayout.mainBottomNavView.visibility = View.GONE
+        findNavController(R.id.main_nav_host_fragment).navigate(actionHomeFragmentToSignupFragment())
+    }
+
+    // don't remove the following code, it may be helpful in future that's why it is kept here
+    val intentForNextScreen: Intent
+        get() = if (sharedPreferenceUtil.showIntro())
+            Intent(this, IntroActivity::class.java)
+        else
+            Intent(this, MainActivity::class.java)
 
 }

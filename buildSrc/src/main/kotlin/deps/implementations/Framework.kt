@@ -11,6 +11,7 @@ object Framework {
     const val navRuntime = "androidx.navigation:navigation-runtime:${Framework.navComponents}"
     const val navUi = "androidx.navigation:navigation-ui-ktx:${Framework.navComponents}"
     const val navDynamic = "androidx.navigation:navigation-dynamic-features-fragment:${Framework.navComponents}"
+    const val navSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Framework.navSafeArgs}"
 
     // Core deps
     const val appCompat = "androidx.appcompat:appcompat:${Framework.appCompat}"
@@ -31,9 +32,10 @@ object Framework {
     // Firebase Deps
     const val firebaseServices = "com.google.gms:google-services:${Framework.firebaseServices}"
     const val firebaseBom = "com.google.firebase:firebase-bom:${Framework.firebaseBom}"
-    const val firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx"
     const val firebaseAuth = "com.firebaseui:firebase-ui-auth:${Framework.firebaseAuth}"
-
+    const val firebaseAnalyticsKtx = "com.google.firebase:firebase-analytics-ktx"
+    const val firebaseCrashlyticsKtx = "com.google.firebase:firebase-crashlytics-ktx"
+    const val firebaseCrashlytics = "com.google.firebase:firebase-crashlytics-gradle:${Framework.firebaseCrashlytics}"
 
     // External Libs (like introScreen)
     const val introScreen = "com.github.AppIntro:AppIntro:${Framework.introScreen}"

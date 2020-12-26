@@ -4,6 +4,7 @@ object Framework {
 
     //android framework deps Versions
     const val navComponents = "2.3.0"
+    const val navSafeArgs = "2.3.2"
     const val materialDialogs = "3.2.1"
     const val appCompat = "1.1.0"
     const val constraintLayout = "1.1.3"
@@ -18,6 +19,7 @@ object Framework {
     const val firebaseServices = "4.3.4"
     const val firebaseBom = "25.12.0"
     const val firebaseAuth = "6.2.0"
+    const val firebaseCrashlytics = "2.4.1"
 
     // external deps go in here
     const val introScreen = "6.0.0"
