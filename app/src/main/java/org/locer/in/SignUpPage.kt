@@ -8,22 +8,34 @@ import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_firstscreen.*
-import org.locer.`in`.databinding.ActivitySignuppageBinding
+import org.locer.`in`.databinding.FragmentSignUpBinding
 
 private const val TAG = "SignUpPage"
 
-class SignUpPage : AppCompatActivity() {
-    private lateinit var signUpPageDataBindingLayout: ActivitySignuppageBinding
+class SignUpPage : Fragment() {
+    private lateinit var signUpPageDataBindingLayout: FragmentSignUpBinding
+    private val sharedPreferenceUtil: SharedPreferenceUtil by
+    lazy { SharedPreferenceUtil(requireContext()) }
 
-    override fun onCreate(savedInstancestate: Bundle?) {
-        super.onCreate(savedInstancestate)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstancestate: Bundle?
+    ): View {
         signUpPageDataBindingLayout =
-            DataBindingUtil.setContentView(this, R.layout.activity_signuppage)
+            FragmentSignUpBinding.inflate(layoutInflater, container, false)
+        return signUpPageDataBindingLayout.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val bitmap = Bitmap.createBitmap(500, 1000, Bitmap.Config.ARGB_4444)
         val canvas1 = Canvas(bitmap)
         val canvas2 = Canvas(bitmap)
@@ -37,9 +49,11 @@ class SignUpPage : AppCompatActivity() {
 
         // get device dimensions
         val displayMetrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        activity?.windowManager?.defaultDisplay?.getMetrics(displayMetrics)
+
         // circle center
-        System.out.println("Width : " + displayMetrics.widthPixels)
+        Log.d(TAG, "onViewCreated: checking screen width- Width: ${displayMetrics.widthPixels}")
+
         val center_x = (displayMetrics.widthPixels / 4.2).toFloat()
         val center_y = (displayMetrics.heightPixels / 75).toFloat()
         val radius = 300F
@@ -64,21 +78,25 @@ class SignUpPage : AppCompatActivity() {
     private fun signUp(email: String, password: String) {
         val mAuth = FirebaseAuth.getInstance()
         Log.d(TAG, "onCreate: checking email: $email & password: $password")
-        mAuth
-            .createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val userId = mAuth.currentUser?.uid
-                    Log.d(
-                        TAG,
-                        "onCreate: Retrieved user credentials: mail address: $email & Password: $password "
-                    )
-                    Log.d(TAG, "onCreate: USER-ID: $userId")
-                    Toast.makeText(this, "Login Successful!!", Toast.LENGTH_LONG).show()
-                } else{
-                    Toast.makeText(this, "Error logging you in...", Toast.LENGTH_LONG).show()
-                    Log.d(TAG, "signUp: Task Failed!!!, ${task.result}")
+        activity?.let {
+            mAuth
+                .createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(it) { task ->
+                    if (task.isSuccessful) {
+                        val userId = mAuth.currentUser?.uid
+                        Log.d(
+                            TAG,
+                            "onCreate: Retrieved user credentials: mail address: $email & Password: $password "
+                        )
+                        Log.d(TAG, "onCreate: USER-ID: $userId")
+                        Toast.makeText(activity, "Login Successful!!", Toast.LENGTH_LONG).show()
+                        sharedPreferenceUtil.setLoggedIn()
+                    } else {
+                        Toast.makeText(activity, "Error logging you in...", Toast.LENGTH_LONG)
+                            .show()
+                        Log.d(TAG, "signUp: Task Failed!!!, ${task.result}")
+                    }
                 }
-            }
+        }
     }
 }

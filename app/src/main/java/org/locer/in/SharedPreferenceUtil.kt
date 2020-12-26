@@ -5,9 +5,6 @@ import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 
-/**
- * Authored by Ayush Shrivastava on 7/8/20
- */
 class SharedPreferenceUtil(context: Context) {
 
     private val sharedPreferences: SharedPreferences =
@@ -16,6 +13,8 @@ class SharedPreferenceUtil(context: Context) {
     val prefIsFirstRun: Boolean
         get() = sharedPreferences.getBoolean(PREF_IS_FIRST_RUN, false)
 
+    val isLoggedIn: Boolean
+        get() = sharedPreferences.getBoolean(LOGGED_IN, false)
 
     fun putPrefIsFirstRun(isFirstRun: Boolean) =
         sharedPreferences.edit { putBoolean(PREF_IS_FIRST_RUN, isFirstRun) }
@@ -23,8 +22,11 @@ class SharedPreferenceUtil(context: Context) {
     fun showIntro(): Boolean = sharedPreferences.getBoolean(LAUNCHED_INTRO, true)
     fun setIntroShown() = sharedPreferences.edit { putBoolean(LAUNCHED_INTRO, false) }
 
+    fun putPrefLoggedIn() = sharedPreferences.edit { putBoolean(LOGGED_IN, isLoggedIn) }
+    fun setLoggedIn() = sharedPreferences.edit { putBoolean(LOGGED_IN, true) }
 
     companion object {
+        private const val LOGGED_IN = "User logged in"
         const val LAUNCHED_INTRO = "Launched intro screen once"
         private const val PREF_IS_FIRST_RUN = "isFirstRun"
     }
