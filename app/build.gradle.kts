@@ -11,6 +11,7 @@ import deps.implementations.Framework.firebaseCrashlyticsKtx
 import deps.implementations.Framework.gsonConverter
 import deps.implementations.Framework.introScreen
 import deps.implementations.Framework.materialDesign
+import deps.implementations.Framework.multiDex
 import deps.implementations.Framework.navFragment
 import deps.implementations.Framework.navRuntime
 import deps.implementations.Framework.navUi
@@ -113,7 +114,9 @@ dependencies {
     implementation(navRuntime)
     implementation(retrofit)
     implementation(gsonConverter)
-//    implementation(materialDesign)
+//    implementation(materialDesign) // was causing some problem, 
+  // see: https://github.com/njaLocer/Locer-Android-Client/pull/33#issuecomment-751405014
+    implementation(multiDex)
 
     // Firebase Essential
     implementation(platform(firebaseBom))

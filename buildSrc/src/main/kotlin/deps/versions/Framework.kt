@@ -24,5 +24,8 @@ object Framework {
     // external deps go in here
     const val introScreen = "6.0.0"
 
+    // Multi-Dex Support
+    const val multiDex = "2.0.1"
+
 
 }
