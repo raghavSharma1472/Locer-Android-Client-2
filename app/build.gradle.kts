@@ -7,8 +7,10 @@ import deps.implementations.Framework.drawerLayout
 import deps.implementations.Framework.firebaseAnalyticsKtx
 import deps.implementations.Framework.firebaseAuth
 import deps.implementations.Framework.firebaseBom
+import deps.implementations.Framework.firebaseCrashlyticsKtx
 import deps.implementations.Framework.gsonConverter
 import deps.implementations.Framework.introScreen
+import deps.implementations.Framework.materialDesign
 import deps.implementations.Framework.navFragment
 import deps.implementations.Framework.navRuntime
 import deps.implementations.Framework.navUi
@@ -111,11 +113,12 @@ dependencies {
     implementation(navRuntime)
     implementation(retrofit)
     implementation(gsonConverter)
+    implementation(materialDesign)
 
     // Firebase Essential
     implementation(platform(firebaseBom))
     implementation(firebaseAnalyticsKtx)
-    implementation(deps.implementations.Framework.firebaseCrashlyticsKtx)
+    implementation(firebaseCrashlyticsKtx)
 
     // Firebase Auth
     implementation(firebaseAuth)

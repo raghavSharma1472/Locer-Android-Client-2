@@ -44,7 +44,7 @@ class SignUpFragment : Fragment() {
 
         val paint = Paint()
         paint.apply {
-            color = Color.parseColor("#FF2800")
+            color = Color.parseColor("#FEE65E")
             strokeWidth = 30F
             style = Paint.Style.FILL
             isAntiAlias = true
