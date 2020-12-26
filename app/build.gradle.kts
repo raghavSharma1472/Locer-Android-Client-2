@@ -29,6 +29,7 @@ plugins {
     id(coreplugins.BuildPlugins.kotlinAndroidExtensions)
     id(coreplugins.BuildPlugins.kotlinKapt)
     id(coreplugins.BuildPlugins.firebasePlugin)
+    id(coreplugins.BuildPlugins.navSafeArgsPlugin)
 }
 
 android {

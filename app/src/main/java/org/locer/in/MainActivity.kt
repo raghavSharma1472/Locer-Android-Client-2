@@ -41,23 +41,18 @@ class MainActivity : AppCompatActivity() {
 //        startActivity(intent)
 //        finish()
 
-//        if (!sharedPreferenceUtil.showIntro()) {
         boundLayout = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        if (!sharedPreferenceUtil.showIntro()) {
         bottomNavView = boundLayout.mainBottomNavView
         navController = Navigation.findNavController(this, R.id.main_nav_host_fragment)
         navController.addOnDestinationChangedListener(finishActionModeOnDestinationChanged)
         appBarConfig = AppBarConfiguration(navController.graph)
         boundLayout.mainBottomNavView.setupWithNavController(navController)
-//        } else {
-//            handleIntro()
-//        }
+        } else {
+            handleIntro()
+        }
         if (!sharedPreferenceUtil.isLoggedIn) {
             navigateToSignUp()
-            /** See if it works with transaction now */
-//            supportFragmentManager.commit {
-//                setReorderingAllowed(true)
-//                add<SignUpPage>(R.id.fragment_auth_container)
-//            }
         }
     }
 

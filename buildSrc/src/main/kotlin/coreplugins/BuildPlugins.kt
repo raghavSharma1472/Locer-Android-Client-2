@@ -10,6 +10,8 @@ object BuildPlugins {
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val kotlinKapt = "kotlin-kapt"
 
+    const val navSafeArgsPlugin = "androidx.navigation.safeargs.kotlin"
+
     // Firebase
     const val firebasePlugin = "com.google.gms.google-services"
 

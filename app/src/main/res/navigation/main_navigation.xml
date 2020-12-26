@@ -34,6 +34,12 @@
     <fragment
       android:id="@+id/signUpPage"
       android:name="org.locer.in.SignUpPage"
-      android:label="SignUpPage" />
+      android:label="SignUpPage" >
+        <action
+          android:id="@+id/action_signUpPage_to_navigation_home"
+          app:destination="@id/navigation_home"
+          app:popUpTo="@id/signUpPage"
+          app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

@@ -4,6 +4,7 @@ object Framework {
 
     //android framework deps Versions
     const val navComponents = "2.3.0"
+    const val navSafeArgs = "2.3.2"
     const val materialDialogs = "3.2.1"
     const val appCompat = "1.1.0"
     const val constraintLayout = "1.1.3"

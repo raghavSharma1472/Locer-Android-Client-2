@@ -11,6 +11,7 @@ object Framework {
     const val navRuntime = "androidx.navigation:navigation-runtime:${Framework.navComponents}"
     const val navUi = "androidx.navigation:navigation-ui-ktx:${Framework.navComponents}"
     const val navDynamic = "androidx.navigation:navigation-dynamic-features-fragment:${Framework.navComponents}"
+    const val navSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Framework.navSafeArgs}"
 
     // Core deps
     const val appCompat = "androidx.appcompat:appcompat:${Framework.appCompat}"
