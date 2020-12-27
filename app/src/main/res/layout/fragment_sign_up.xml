@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -7,148 +8,141 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-      android:id="@+id/fragment_signUp"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
+        android:id="@+id/fragment_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
-          android:id="@+id/imageV"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/imageV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="-44dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <EditText
-          android:id="@+id/emailId"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="220dp"
-          android:layout_marginBottom="10dp"
-          android:ems="10"
-          android:hint="Email Id/Phone"
-          android:nextFocusDown="@id/password"
-          app:layout_constraintBottom_toTopOf="@id/password"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/emailId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:ems="10"
+            android:hint="Email Id"
+            android:nextFocusDown="@id/password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageV" />
 
         <EditText
-          android:id="@+id/password"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="10dp"
-          android:ems="10"
-          android:hint="Password"
-          app:layout_constraintBottom_toTopOf="@+id/first_name"
-          app:layout_constraintEnd_toEndOf="@id/emailId"
-          app:layout_constraintHorizontal_bias="0.0"
-          app:layout_constraintStart_toStartOf="@id/emailId" />
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Password"
+            app:layout_constraintEnd_toEndOf="@id/emailId"
+            app:layout_constraintStart_toStartOf="@id/emailId"
+            app:layout_constraintTop_toBottomOf="@id/emailId" />
 
         <EditText
-          android:id="@+id/first_name"
-          android:layout_width="100dp"
-          android:layout_height="wrap_content"
-          android:layout_marginEnd="10dp"
-          android:layout_marginBottom="10dp"
-          android:ems="10"
-          android:hint="First Name"
-          android:inputType="textPersonName"
-          app:layout_constraintBottom_toTopOf="@+id/phone_number"
-          app:layout_constraintEnd_toStartOf="@+id/last_name"
-          app:layout_constraintStart_toStartOf="@id/password" />
+            android:id="@+id/first_name"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@id/last_name"
+            app:layout_constraintStart_toStartOf="@id/password"
+            app:layout_constraintTop_toBottomOf="@id/password" />
 
         <Button
-          android:id="@+id/login_button"
-          android:layout_width="210dp"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="10dp"
-          android:background="@drawable/fui_idp_button_background_google"
-          android:text="Log In"
-          android:textColor="@color/fui_bgEmail"
-          app:layout_constraintBottom_toTopOf="@+id/textView3"
-          app:layout_constraintEnd_toEndOf="@+id/first_name"
-          app:layout_constraintHorizontal_bias="0.0"
-          app:layout_constraintStart_toStartOf="@+id/first_name" />
+            android:id="@+id/signup_button"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/fui_idp_button_background_google"
+            android:text="Sign Up"
+            android:textColor="@color/fui_bgEmail"
+            app:layout_constraintEnd_toEndOf="@id/phone_number"
+            app:layout_constraintStart_toStartOf="@id/tnc"
+            app:layout_constraintTop_toBottomOf="@id/tnc" />
 
         <Button
-          android:id="@+id/signup_button"
-          android:layout_width="210dp"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="10dp"
-          android:background="@color/fui_bgEmail"
-          android:text="Sign Up"
-          android:textColor="@color/appintro_default_selected_color"
-          app:layout_constraintBottom_toTopOf="@+id/button3"
-          app:layout_constraintEnd_toEndOf="@+id/textView3"
-          app:layout_constraintStart_toStartOf="@+id/textView3" />
+            android:id="@+id/login_button"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/fui_bgEmail"
+            android:text="Login"
+            android:textColor="@color/appintro_default_selected_color"
+            app:layout_constraintEnd_toEndOf="@id/textView3"
+            app:layout_constraintStart_toStartOf="@id/textView3"
+            app:layout_constraintTop_toBottomOf="@id/textView3" />
 
         <Button
-          android:id="@+id/button3"
-          android:layout_width="210dp"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="10dp"
-          android:background="@color/appintro_default_selected_color"
-          android:text="Sign Up With Facebook"
-          android:textColor="@color/fui_bgEmail"
-          app:layout_constraintBottom_toTopOf="@+id/button4"
-          app:layout_constraintEnd_toEndOf="@id/signup_button"
-          app:layout_constraintStart_toStartOf="@id/signup_button" />
+            android:id="@+id/button3"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/appintro_default_selected_color"
+            android:text="Sign Up With Facebook"
+            android:textColor="@color/fui_bgEmail"
+            app:layout_constraintEnd_toEndOf="@id/login_button"
+            app:layout_constraintStart_toStartOf="@id/login_button"
+            app:layout_constraintTop_toBottomOf="@id/login_button" />
 
         <Button
-          android:id="@+id/button4"
-          android:layout_width="210dp"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="60dp"
-          android:background="@color/appintro_default_selected_color"
-          android:text="Sign Up With Google"
-          android:textColor="@color/fui_bgEmail"
-          app:layout_constraintBottom_toBottomOf="@+id/imageV"
-          app:layout_constraintEnd_toEndOf="@+id/button3"
-          app:layout_constraintStart_toStartOf="@+id/button3" />
+            android:id="@+id/button4"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/appintro_default_selected_color"
+            android:text="Sign Up With Google"
+            android:textColor="@color/fui_bgEmail"
+            app:layout_constraintEnd_toEndOf="@id/button3"
+            app:layout_constraintStart_toStartOf="@id/button3"
+            app:layout_constraintTop_toBottomOf="@id/button3" />
 
         <TextView
-          android:id="@+id/textView3"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="10dp"
-          android:text="or"
-          app:layout_constraintBottom_toTopOf="@id/signup_button"
-          app:layout_constraintEnd_toEndOf="@id/login_button"
-          app:layout_constraintStart_toStartOf="@id/login_button" />
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="or"
+            app:layout_constraintEnd_toEndOf="@id/signup_button"
+            app:layout_constraintStart_toStartOf="@id/signup_button"
+            app:layout_constraintTop_toBottomOf="@id/signup_button" />
 
         <EditText
-          android:id="@+id/phone_number"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="10dp"
-          android:ems="10"
-          android:hint="Phone Number"
-          android:inputType="phone"
-          app:layout_constraintBottom_toTopOf="@+id/tnc"
-          app:layout_constraintEnd_toEndOf="@id/last_name"
-          app:layout_constraintStart_toStartOf="@id/first_name" />
+            android:id="@+id/phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="@id/password"
+            app:layout_constraintStart_toStartOf="@id/password"
+            app:layout_constraintTop_toBottomOf="@id/first_name" />
 
         <CheckBox
-          android:id="@+id/tnc"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="10dp"
-          android:text="I agree by the terms and conditions"
-          app:layout_constraintBottom_toTopOf="@id/login_button"
-          app:layout_constraintStart_toStartOf="@id/phone_number" />
+            android:id="@+id/tnc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="I agree by the terms and conditions"
+            app:layout_constraintStart_toStartOf="@id/phone_number"
+            app:layout_constraintTop_toBottomOf="@id/phone_number" />
 
         <EditText
-          android:id="@+id/last_name"
-          android:layout_width="100dp"
-          android:layout_height="wrap_content"
-          android:ems="10"
-          android:hint="Last Name"
-          android:inputType="textPersonName"
-          app:layout_constraintBottom_toTopOf="@id/phone_number"
-          app:layout_constraintEnd_toEndOf="@id/password"
-          app:layout_constraintTop_toBottomOf="@id/password" />
+            android:id="@+id/last_name"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@id/password"
+            app:layout_constraintTop_toBottomOf="@id/password" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
