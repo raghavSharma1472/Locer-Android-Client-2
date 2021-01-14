@@ -21,9 +21,9 @@ class HomeFragment : Fragment() {
     ): View? {
         homeBoundLayout =
             DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        val toolbar = homeBoundLayout.toolbarHomeFrag
+        //val toolbar = homeBoundLayout.toolbarHomeFrag
         val activity = activity as MainActivity
-        activity.setSupportActionBar(toolbar)
+        //activity.setSupportActionBar(toolbar)
         activity.supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(false)
             setTitle("Home Fragment")

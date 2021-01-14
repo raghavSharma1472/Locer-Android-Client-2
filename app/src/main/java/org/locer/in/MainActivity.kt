@@ -66,10 +66,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     // don't remove the following code, it may be helpful in future that's why it is kept here
-    val intentForNextScreen: Intent
-        get() = if (sharedPreferenceUtil.showIntro())
-            Intent(this, IntroActivity::class.java)
-        else
-            Intent(this, MainActivity::class.java)
+//    val intentForNextScreen: Intent
+//        get() = if (sharedPreferenceUtil.showIntro())
+//            Intent(this, IntroActivity::class.java)
+//        else
+//            Intent(this, MainActivity::class.java)
 
 }
